@@ -1,0 +1,5 @@
+main/
+CMakeLists.txt
+sdkconfig
+sdkconfig.old
+build/
