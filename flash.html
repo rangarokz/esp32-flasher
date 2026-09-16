@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP Web Tools - Lazy Idli ESP32 Firmware Flasher</title>
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 1.75rem;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #38bdf8;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        esp-web-install-button {
+            display: block;
+            margin-top: 1.5rem;
+        }
+        button[slot="activate"] {
+            background-color: #0284c7;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button[slot="activate"]:hover {
+            background-color: #0369a1;
+        }
+        .footer-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Lazy Idli ESP32 Web Flasher</h1>
+        <p>Flash your ESP32 board directly from Google Chrome or Microsoft Edge without installing ESP-IDF or drivers.</p>
+        
+        <esp-web-install-button manifest="manifest.json" baud-rate="460800">
+            <button slot="activate">Connect & Flash ESP32</button>
+            <span slot="unsupported">Web Serial is not supported in this browser. Please open in Google Chrome or Microsoft Edge on Desktop.</span>
+        </esp-web-install-button>
+
+        <p class="footer-note">Note: Hold BOOT button on your ESP32 board if connection fails to initialize.</p>
+    </div>
+</body>
+</html>
