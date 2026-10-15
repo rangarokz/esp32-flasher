@@ -3,3 +3,5 @@ CMakeLists.txt
 sdkconfig
 sdkconfig.old
 build/
+.vscode/
+

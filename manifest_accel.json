@@ -1,0 +1,15 @@
+{
+  "name": "Train Simulator Accelerator Controller",
+  "version": "1.0.0",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "accelerator_merged.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

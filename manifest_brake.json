@@ -1,0 +1,15 @@
+{
+  "name": "Train Simulator Brake Controller",
+  "version": "1.0.0",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "brake_merged.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
