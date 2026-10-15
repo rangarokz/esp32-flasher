@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 Firmware Flasher</title>
+    <title>Lazy Idli - ESP32 Firmware Flasher</title>
     <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
     <style>
         :root {
@@ -48,23 +48,23 @@
             margin-bottom: 24px;
         }
 
-        .header-badge {
+        .brand-badge {
             display: inline-block;
             background: var(--badge-bg);
             border: 1px solid var(--badge-border);
             color: var(--badge-text);
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 6px;
             font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
+            font-weight: 700;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             margin-bottom: 12px;
         }
 
         .header h1 {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.65rem;
+            font-weight: 700;
             letter-spacing: -0.02em;
             color: var(--text-main);
             margin-bottom: 6px;
@@ -246,15 +246,22 @@
         .notes-card li:last-child {
             margin-bottom: 0;
         }
+
+        .footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <span class="header-badge">Train Simulator Controller</span>
-            <h1>ESP32 Firmware Flasher</h1>
-            <p>Connect your ESP32 board via USB to flash the firmware directly through your web browser.</p>
+            <span class="brand-badge">Lazy Idli</span>
+            <h1>Lazy Idli ESP32 Firmware Flasher</h1>
+            <p>Connect your ESP32 board via USB to flash Lazy Idli Train Simulator controller firmwares directly through your web browser.</p>
         </div>
 
         <div class="tab-switcher">
@@ -276,12 +283,12 @@
                 </div>
                 
                 <p class="panel-desc">
-                    Firmware for train accelerator and reverser control with calibrated notch detents and direction inputs.
+                    Firmware for Lazy Idli train accelerator and reverser control with calibrated notch detents and direction inputs.
                 </p>
 
                 <table class="specs-table">
                     <tr>
-                        <td class="label">Target Hardware</td>
+                        <td class="label">Hardware Platform</td>
                         <td class="val">ESP32 (2MB+ Flash)</td>
                     </tr>
                     <tr>
@@ -316,12 +323,12 @@
                 </div>
                 
                 <p class="panel-desc">
-                    Firmware for locomotive pneumatic brake handle with calibrated multi-stage service detents and emergency state.
+                    Firmware for Lazy Idli locomotive pneumatic brake handle with calibrated multi-stage service detents and emergency state.
                 </p>
 
                 <table class="specs-table">
                     <tr>
-                        <td class="label">Target Hardware</td>
+                        <td class="label">Hardware Platform</td>
                         <td class="val">ESP32 (2MB+ Flash)</td>
                     </tr>
                     <tr>
@@ -357,6 +364,10 @@
                 <li>If connection fails, press and hold the BOOT button on the ESP32 while clicking Connect.</li>
                 <li>Requires Google Chrome or Microsoft Edge on Desktop.</li>
             </ul>
+        </div>
+
+        <div class="footer">
+            Lazy Idli Train Simulator Controllers
         </div>
     </div>
 
