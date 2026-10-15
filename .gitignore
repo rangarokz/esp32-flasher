@@ -4,4 +4,7 @@ sdkconfig
 sdkconfig.old
 build/
 .vscode/
+backup_known_good/
+restore_backup.ps1
+
 
