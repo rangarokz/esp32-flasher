@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lazy Idli - ESP32 Firmware Flasher</title>
+    <title>ESP32 Firmware Flasher</title>
     <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
     <style>
         :root {
@@ -15,9 +15,9 @@
             --text-main: #f9fafb;
             --text-secondary: #9ca3af;
             --text-muted: #6b7280;
-            --badge-bg: #1e293b;
-            --badge-border: #334155;
-            --badge-text: #94a3b8;
+            --badge-bg: rgba(37, 99, 235, 0.12);
+            --badge-border: rgba(37, 99, 235, 0.35);
+            --badge-text: #60a5fa;
         }
 
         * {
@@ -40,12 +40,12 @@
 
         .container {
             width: 100%;
-            max-width: 520px;
+            max-width: 500px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
 
         .brand-badge {
@@ -53,26 +53,27 @@
             background: var(--badge-bg);
             border: 1px solid var(--badge-border);
             color: var(--badge-text);
-            padding: 4px 14px;
-            border-radius: 6px;
-            font-size: 0.75rem;
+            padding: 7px 20px;
+            border-radius: 999px;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.15);
         }
 
         .header h1 {
-            font-size: 1.65rem;
+            font-size: 1.75rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             color: var(--text-main);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .header p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             line-height: 1.5;
         }
 
@@ -91,9 +92,9 @@
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            padding: 10px 14px;
+            padding: 11px 14px;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.15s ease;
@@ -114,7 +115,7 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
-            padding: 28px 24px;
+            padding: 30px 24px;
             text-align: left;
         }
 
@@ -130,11 +131,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .panel-title {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--text-main);
         }
@@ -144,69 +145,43 @@
             background: #1e293b;
             color: #94a3b8;
             border: 1px solid #334155;
-            padding: 2px 8px;
+            padding: 3px 9px;
             border-radius: 4px;
             font-weight: 500;
         }
 
         .panel-desc {
             color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.55;
-            margin-bottom: 20px;
-        }
-
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #0f172a;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 22px;
-            font-size: 0.82rem;
-        }
-
-        .specs-table td {
-            padding: 10px 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .specs-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .specs-table .label {
-            color: var(--text-muted);
-            width: 45%;
-        }
-
-        .specs-table .val {
-            color: var(--text-main);
-            font-weight: 500;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         esp-web-install-button {
             display: block;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .flash-btn {
             width: 100%;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
-            padding: 12px 20px;
+            padding: 13px 20px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             background-color: var(--accent-primary);
             color: #ffffff;
-            transition: background-color 0.15s ease;
+            transition: background-color 0.15s ease, transform 0.1s ease;
             text-align: center;
         }
 
         .flash-btn:hover {
             background-color: var(--accent-hover);
+        }
+
+        .flash-btn:active {
+            transform: translateY(1px);
         }
 
         .unsupported-msg {
@@ -259,9 +234,9 @@
 
     <div class="container">
         <div class="header">
-            <span class="brand-badge">Lazy Idli</span>
-            <h1>Lazy Idli ESP32 Firmware Flasher</h1>
-            <p>Connect your ESP32 board via USB to flash Lazy Idli Train Simulator controller firmwares directly through your web browser.</p>
+            <span class="brand-badge">LAZY IDLI</span>
+            <h1>ESP32 Firmware Flasher</h1>
+            <p>Connect your ESP32 board via USB to flash the controller firmware directly through your web browser.</p>
         </div>
 
         <div class="tab-switcher">
@@ -283,27 +258,8 @@
                 </div>
                 
                 <p class="panel-desc">
-                    Firmware for Lazy Idli train accelerator and reverser control with calibrated notch detents and direction inputs.
+                    Firmware for train accelerator and reverser throttle control with calibrated notch detents and direction inputs.
                 </p>
-
-                <table class="specs-table">
-                    <tr>
-                        <td class="label">Hardware Platform</td>
-                        <td class="val">ESP32 (2MB+ Flash)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Throttle ADC Pin</td>
-                        <td class="val">GPIO 34 (ADC1 CH6)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Reverser Pins</td>
-                        <td class="val">GPIO 4 (Fwd), GPIO 16 (Rev)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Storage</td>
-                        <td class="val">NVS Flash Memory</td>
-                    </tr>
-                </table>
 
                 <esp-web-install-button manifest="manifest_accel.json" baud-rate="460800">
                     <button slot="activate" class="flash-btn">
@@ -323,27 +279,8 @@
                 </div>
                 
                 <p class="panel-desc">
-                    Firmware for Lazy Idli locomotive pneumatic brake handle with calibrated multi-stage service detents and emergency state.
+                    Firmware for locomotive pneumatic brake handle control with calibrated multi-stage service detents and emergency state.
                 </p>
-
-                <table class="specs-table">
-                    <tr>
-                        <td class="label">Hardware Platform</td>
-                        <td class="val">ESP32 (2MB+ Flash)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Brake Lever ADC Pin</td>
-                        <td class="val">GPIO 32 (ADC1 CH4)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Calibration Pin</td>
-                        <td class="val">GPIO 0 (BOOT Button)</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Status LED</td>
-                        <td class="val">GPIO 2 (Onboard LED)</td>
-                    </tr>
-                </table>
 
                 <esp-web-install-button manifest="manifest_brake.json" baud-rate="460800">
                     <button slot="activate" class="flash-btn">
